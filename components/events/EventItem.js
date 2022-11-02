@@ -4,7 +4,8 @@ import classes from "./event-item.module.css";
 import Address from "../icons/address-icon";
 import DateIcon from "../icons/date-icon";
 import Right from "../icons/arrow-right-icon";
-function EventItem({ featuredEvent }) {
+function EventItem({ featuredEvent,image }) {
+console.log(image);
   const date = featuredEvent.date;
   const readableDate = new Date(date).toLocaleDateString("fr-FR", {
     day: "numeric",
@@ -17,7 +18,7 @@ function EventItem({ featuredEvent }) {
 
   return (
     <li className={classes.item} key={featuredEvent.id}>
-      <img src={featuredEvent.image} />
+      <img src={image} alt={featuredEvent.title} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{featuredEvent.title}</h2>
